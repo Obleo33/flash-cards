@@ -23,6 +23,10 @@ class Round{
   count(){
     return this.guesses.length;
   }
+
+  percentCorrect(){
+    return this.numberCorrect / this.guesses.length * 100;
+  }
 }
 
 

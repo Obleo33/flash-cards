@@ -157,4 +157,33 @@ describe('Round constructor', () => {
     expect(round.currentCard()).to.equal(card2);
   })
 
+  it('should have a percentCorrect function', () => {
+    let card1 = new Card({question: 'What is the capital of Alaska?', answer: 'Juneau'})
+    let card2 = new Card({question: 'Approximately how many miles are in one astronomical unit?', answer: '93,000,000'})
+    let deck  = new Deck({});
+
+    deck.addCard(card1);
+    deck.addCard(card2);
+    let round = new Round(deck);
+
+    expect(round.percentCorrect()).to.be.function;
+  })
+
+  it('should give you a percentCorrect based on your guesses vs cards', () => {
+    let card1 = new Card({question: 'What is the capital of Alaska?', answer: 'Juneau'})
+    let card2 = new Card({question: 'Approximately how many miles are in one astronomical unit?', answer: '93,000,000'})
+    let deck  = new Deck({});
+
+    deck.addCard(card1);
+    deck.addCard(card2);
+    let round = new Round(deck);
+
+    round.recordGuess("hey");
+    round.recordGuess("you");
+    round.recordGuess("it's me");
+    round.recordGuess("Juneau");
+
+    expect(round.percentCorrect()).to.equal(25);
+  })
+
 });
