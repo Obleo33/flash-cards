@@ -3,7 +3,6 @@ class Card {
     this.question = question;
     this.answer   = answer;
   }
-
 };
 
 export default Card;

@@ -185,5 +185,4 @@ describe('Round constructor', () => {
 
     expect(round.percentCorrect()).to.equal(25);
   })
-
 });
