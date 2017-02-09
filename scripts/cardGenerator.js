@@ -15,7 +15,7 @@ class CardGenerator{
       let answerTxt = cardArray[1];
 
       let card = new Card ({question:questionTxt,answer:answerTxt});
-      cardArray.push(card);
+      this.cards.push(card);
     })
   }
 }
